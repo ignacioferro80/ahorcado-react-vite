@@ -1,0 +1,71 @@
+.homePage{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 80px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12);
+    background-color: #c5e2d7;
+}
+
+.title{
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-size: 200%;
+    color:#154734;
+    margin: 10px;
+}
+
+.text{
+    color:#154734; 
+}
+
+.buttons{
+    margin: 20px;
+}
+
+.start-button{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    
+    background: #154734;
+    border-radius: 24px;
+}
+
+.start-button:hover{
+    transition:0.5s;
+    transform: scale(1.05);
+    background-color: #3c7a63;
+
+    cursor:pointer;
+}
+
+.add-word-button{
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border-color: #3c7a63;
+    color:#3c7a63;
+
+    background: #c5e2d7;
+    border-radius: 24px;
+}
+
+.add-word-button:hover{
+    transition:0.5s;
+    transform: scale(1.05);
+    background-color: #f0ffff;
+
+    cursor:pointer;
+}
+
+.rodapie{
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color:#609ED4
+}

@@ -1,0 +1,26 @@
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Game from "./pages/game";
+import AddWord from "./pages/addWord";
+import "../src/styles/app.css";
+
+const App = () => {
+
+  const [secretWordList, setWordList] = useState(["comprehention", "university", "so"]);
+
+  return (
+    <Router>
+      <Routes>
+
+        <Route path="/" element={<Home/>} />
+
+        <Route path="/game" element={<Game secretWordList={secretWordList}/>} />
+
+        <Route path="/addWord" element={<AddWord secretWordList={secretWordList} setWordList={setWordList}/>} />
+
+      </Routes>
+    </Router>
+  );
+}
+export default App;

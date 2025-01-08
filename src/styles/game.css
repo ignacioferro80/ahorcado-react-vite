@@ -1,0 +1,79 @@
+.gamePage {
+    background-color: #c5e2d7;
+    border-radius: 10px;
+    padding-bottom:20px;
+}
+
+.gamePage.blurred {
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+}
+
+.testLetterInput {
+    margin-bottom: 20px;
+}
+
+.test-button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    background: #154734;
+    border-radius: 24px;
+}
+
+.test-button:hover {
+    transition: 0.5s;
+    transform: scale(1.03);
+    background-color: #3c7a63;
+}
+
+.go-home-button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    background: #151a47;
+    border-radius: 24px;
+}
+
+.go-home-button:hover {
+    transition: 0.5s;
+    transform: scale(1.03);
+    background-color: #2d3791;
+}
+
+.new-game-button {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    border-color: #3c7a63;
+    color:#3c7a63;
+
+    background: #c5e2d7;
+    border-radius: 24px;
+}
+
+.new-game-button:hover {
+    transition:0.5s;
+    transform: scale(1.05);
+    background-color: #f0ffff;
+}
+
+.youWon {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #3c7a63;
+}
+
+.youLost {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #421111;
+}
