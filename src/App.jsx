@@ -7,7 +7,7 @@ import "../src/styles/app.css";
 
 const App = () => {
 
-  const [secretWordList, setWordList] = useState(["comprehention", "university", "so"]);
+  const [secretWordList, setWordList] = useState(["always", "language", "search", "straight", "student", "complete", "university"]);
 
   return (
     <Router>
