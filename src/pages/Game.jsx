@@ -46,11 +46,7 @@ const Game = ({secretWordList}) => {
 
     const handleInputChange = (event) => {
 
-        setLetterInput(event.target.value);
-        if (regex.test(event.target.value)) {
-        } else {
-          setNotAvailable(true);
-        }
+        setLetterInput(event.target.value.toLowerCase());
 
     }
 
@@ -120,7 +116,7 @@ const Game = ({secretWordList}) => {
     }
 
     const testLetter = () => {
-
+        
         if(letterInput==""){
             setNotAvailable(true);
             return
@@ -199,7 +195,14 @@ const Game = ({secretWordList}) => {
                 </canvas>
                 <input  className="testLetterInput" 
                         value={letterInput} 
-                        onChange={handleInputChange} 
+                        onChange={handleInputChange}
+                        onKeyDown={
+                            (event) => {
+                                if (event.key === "Enter") {
+                                  testLetter();
+                                }
+                            }
+                        }
                         type="text" 
                         placeholder="Insert letter here" maxLength="1" 
                 />
