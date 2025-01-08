@@ -1,8 +1,5 @@
-# React + Vite
+# Hangman game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This game was created using React + Vite and it is inspired in the Alura ONE Course Sprint: "The Hangman Game", which i first implemented in september 2022.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+As a way of practice and testing my improvement, i recreated this game with the tools i've learned over the past 2 years.
