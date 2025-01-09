@@ -22,10 +22,18 @@
     border-radius: 24px;
 }
 
+.test-button.night{
+    background: #72618b;
+}
+
 .test-button:hover {
     transition: 0.5s;
     transform: scale(1.03);
     background-color: #3c7a63;
+}
+
+.test-button.night:hover {
+    background-color: #a8b9d4;
 }
 
 .go-home-button {
@@ -37,10 +45,18 @@
     border-radius: 24px;
 }
 
+.go-home-button.night {
+    background: #3a2757;
+}
+
 .go-home-button:hover {
     transition: 0.5s;
     transform: scale(1.03);
     background-color: #2d3791;
+}
+
+.go-home-button.night:hover {
+    background: #674994;
 }
 
 .new-game-button {
@@ -56,24 +72,18 @@
     border-radius: 24px;
 }
 
+.new-game-button.night{
+    border-color: #c5e2d7;
+    color:#c5e2d7;
+    background: #070b44;
+}
+
 .new-game-button:hover {
     transition:0.5s;
     transform: scale(1.05);
     background-color: #f0ffff;
 }
 
-.youWon {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    color: #3c7a63;
-}
-
-.youLost {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    color: #421111;
+.new-game-button.night:hover {
+    background-color: #54588d;
 }

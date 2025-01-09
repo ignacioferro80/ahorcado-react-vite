@@ -4,7 +4,7 @@ import "../styles/addWord.css";
 import vector from "../assets/vector.png";
 import NotAvailable from "../components/NotAvailable.jsx";
 
-const AddWord = ({ secretWordList, setWordList }) => {
+const AddWord = ({ darkMode, secretWordList, setWordList }) => {
     const navigate = useNavigate();
 
     const [textInput, setTextInput] = useState("");
@@ -39,19 +39,19 @@ const AddWord = ({ secretWordList, setWordList }) => {
     }
 
     return (
-        <div className="addWordPage">
+        <div className={`addWordPage ${darkMode ? "night" : ""}`}>
 
-            <form className="insertTextForm">
-                <input value={textInput} onChange={handleInputChange} type="text" maxLength="8" placeholder="Insert word here"/>
+            <form>
+                <input className={`insertTextForm ${darkMode ? "night" : ""}`} value={textInput} onChange={handleInputChange} type="text" maxLength="8" placeholder="Insert word here"/>
             </form>
             <div className="warning">
                 <img className="warning-logo" src={vector}/>
                 <p className="warning-text">Only lowercase words with 8 letters max.</p>
             </div>
             <div>
-                <button className="save-button" onClick={() => saveWordWritten()} >Save</button>
-                <button className="begin-button" onClick={() => navigate("/game")} >Begin</button>
-                <button className="go-home-button" onClick={() => navigate("/")} >Go home</button>
+                <button className={`save-button ${darkMode ? "night" : ""}`} onClick={() => saveWordWritten()} >Save</button>
+                <button className={`begin-button ${darkMode ? "night" : ""}`} onClick={() => navigate("/game")} >Begin</button>
+                <button className={`go-home-button ${darkMode ? "night" : ""}`} onClick={() => navigate("/")} >Go home</button>
             </div>
 
             {notAvailable && textInput==="" && <NotAvailable text={"Write a word to be used in the game!"} setNotAvailable={setNotAvailable} />}

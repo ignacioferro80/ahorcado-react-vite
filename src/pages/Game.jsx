@@ -5,7 +5,7 @@ import '../styles/game.css';
 import FinishedGame from "../components/FinishedGame.jsx";
 import NotAvailable from "../components/NotAvailable.jsx";
 
-const Game = ({secretWordList}) => {
+const Game = ({darkMode, secretWordList}) => {
 
     const navigate = useNavigate();
     const [secretWord, setSecretWord] = useState("");
@@ -207,9 +207,9 @@ const Game = ({secretWordList}) => {
                         placeholder="Insert letter here" maxLength="1" 
                 />
                 <div>
-                    <button onClick={() => testLetter()}  disabled={finishedGame || notAvailable} className="test-button">Test letter</button>
-                    <button onClick={() => reloadPage()}  disabled={finishedGame || notAvailable} className="new-game-button">New game</button>
-                    <button onClick={() => navigate("/")} disabled={finishedGame || notAvailable} className="go-home-button">Go home</button>
+                    <button onClick={() => testLetter()}  disabled={finishedGame || notAvailable} className={`test-button ${darkMode ? "night" : ""}`}>Test letter</button>
+                    <button onClick={() => reloadPage()}  disabled={finishedGame || notAvailable} className={`new-game-button ${darkMode ? "night" : ""}`}>New game</button>
+                    <button onClick={() => navigate("/")} disabled={finishedGame || notAvailable} className={`go-home-button ${darkMode ? "night" : ""}`}>Go home</button>
                 </div>
             </div>
 
@@ -222,8 +222,8 @@ const Game = ({secretWordList}) => {
             </div>
 
             {notAvailable && letterInput==="" && <NotAvailable text={"You should try writing a letter first"} setNotAvailable={setNotAvailable} />}
-            {notAvailable && guessedLetters.includes(letterInput) && <NotAvailable text={"You've already tried this letter and it belongs!"} setNotAvailable={setNotAvailable} />}
-            {notAvailable && notGuessedLetters.includes(letterInput) && <NotAvailable text={"You've already tried this letter and it does not belong!"} setNotAvailable={setNotAvailable} />}
+            {notAvailable && guessedLetters.includes(letterInput) && <NotAvailable text={"You already tried this letter and it belongs!"} setNotAvailable={setNotAvailable} />}
+            {notAvailable && notGuessedLetters.includes(letterInput) && <NotAvailable text={"You already tried this letter and it does not belong!"} setNotAvailable={setNotAvailable} />}
             {notAvailable && !regex.test(letterInput) && <NotAvailable text={"Remember using only letters!"} setNotAvailable={setNotAvailable} />}
 
         </div>

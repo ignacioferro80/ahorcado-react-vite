@@ -12,17 +12,12 @@
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
 
-  background-image: url('../assets/blurry-gradient-haikei.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  max-height: 300vh;
-  max-width: 300vw;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --background-image: url('../assets/blurry-gradient-haikei.png');
 }
 
 a {
@@ -40,6 +35,13 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+
+  background: var(--background-image);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-height: 300vh;
+  max-width: 300vw;
 }
 
 h1 {
@@ -53,7 +55,6 @@ button {
   padding: 0.6em 1.2em;
   margin: 10px;
   font-size: 1em;
-  min-width: 150px;
   font-weight: 500;
   font-family: inherit;
   cursor: pointer;
@@ -72,10 +73,8 @@ input {
   width: 200px;
   
   background: none;
-  color:#0a192b;
   padding-top: 20px;
   border:none;
-  border-bottom: 1px solid #3c7a63;
   border-width: medium;
   border-radius: 3px;
   outline:0;

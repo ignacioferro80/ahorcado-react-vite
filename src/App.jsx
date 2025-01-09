@@ -8,16 +8,17 @@ import "../src/styles/app.css";
 const App = () => {
 
   const [secretWordList, setWordList] = useState(["always", "language", "search", "straight", "student", "complete", "university"]);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <Router>
       <Routes>
 
-        <Route path="/" element={<Home/>} />
+        <Route path="/" element={<Home darkMode={darkMode} setDarkMode={setDarkMode}/>} />
 
-        <Route path="/game" element={<Game secretWordList={secretWordList}/>} />
+        <Route path="/game" element={<Game darkMode={darkMode} secretWordList={secretWordList}/>} />
 
-        <Route path="/addWord" element={<AddWord secretWordList={secretWordList} setWordList={setWordList}/>} />
+        <Route path="/addWord" element={<AddWord darkMode={darkMode} secretWordList={secretWordList} setWordList={setWordList}/>} />
 
       </Routes>
     </Router>

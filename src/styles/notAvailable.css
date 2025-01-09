@@ -22,6 +22,10 @@
     margin: 10px 0;
   }
 
+  .alert-icon {
+    max-width: 40px;
+  }
+
   .ok-button {
     display: flex;
     justify-content: space-around;
