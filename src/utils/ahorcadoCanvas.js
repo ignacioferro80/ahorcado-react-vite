@@ -1,9 +1,14 @@
-export const drawHangmanLine = (tablero) => {
+export const drawHangmanLine = (tablero, darkMode) => {
 
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+            tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(480,250);
@@ -13,12 +18,17 @@ export const drawHangmanLine = (tablero) => {
 
 }
 
-export const drawHanger = (tablero) => {
+export const drawHanger = (tablero, darkMode) => {
 
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(500,250);
@@ -40,12 +50,18 @@ export const drawHanger = (tablero) => {
 
 }
 
-export const drawHead = (tablero) => {
+export const drawHead = (tablero, darkMode) => {
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
-    tablero.fillStyle = "#1a3250";
+    if(darkMode) {
+        tablero.fillStyle = "#bbacd1";
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+        tablero.fillStyle = "#070b44";
+    }
 
     tablero.moveTo(590,120);
     tablero.arc(590,120,30,0,2*Math.PI);
@@ -53,12 +69,17 @@ export const drawHead = (tablero) => {
     tablero.closePath();
 }
 
-export const drawBody = (tablero) => {
+export const drawBody = (tablero, darkMode) => {
 
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(590,140);
@@ -68,11 +89,16 @@ export const drawBody = (tablero) => {
 
 }
 
-export const drawLeftLeg = (tablero) => {
+export const drawLeftLeg = (tablero, darkMode) => {
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(590,180);
@@ -82,11 +108,16 @@ export const drawLeftLeg = (tablero) => {
 
 }
 
-export const drawRightLeg = (tablero) => {
+export const drawRightLeg = (tablero, darkMode) => {
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(590,180);
@@ -95,11 +126,16 @@ export const drawRightLeg = (tablero) => {
     tablero.closePath();
 }
 
-export const drawLeftArm = (tablero) => {
+export const drawLeftArm = (tablero, darkMode) => {
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(590,140);
@@ -108,11 +144,16 @@ export const drawLeftArm = (tablero) => {
     tablero.closePath();
 }
 
-export const drawRightArm = (tablero) => {
+export const drawRightArm = (tablero, darkMode) => {
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(590,140);
@@ -121,11 +162,16 @@ export const drawRightArm = (tablero) => {
     tablero.closePath();
 }
 
-export const drawArrow = (tablero) => {
+export const drawArrow = (tablero, darkMode) => {
     tablero.lineWidth = 6;
     tablero.lineCap = "round";
     tablero.lineJoin = "round";
-    tablero.strokeStyle = "#1a3250";
+    if(darkMode) {
+        tablero.strokeStyle = "#bbacd1";
+    }
+    else {
+        tablero.strokeStyle = "#070b44";
+    }
 
     tablero.beginPath();
     tablero.moveTo(540,150);
@@ -146,38 +192,38 @@ export const drawArrow = (tablero) => {
     tablero.closePath();
 }
 
-export const drawHangmanWith_Errors = (errors, tablero) => {
+export const drawHangmanWith_Errors = (errors, tablero, darkMode) => {
     
     if(errors == 7){
-        drawHanger(tablero)
+        drawHanger(tablero, darkMode)
     }
 
     else if(errors == 6){
-        drawHead(tablero)
+        drawHead(tablero, darkMode)
     }
 
     else if(errors == 5){
-        drawBody(tablero)
+        drawBody(tablero, darkMode)
     }
 
     else if(errors == 4){
-        drawLeftLeg(tablero)
+        drawLeftLeg(tablero, darkMode)
     }
 
     else if(errors == 3){
-        drawRightLeg(tablero)
+        drawRightLeg(tablero, darkMode)
     }
 
     else if(errors == 2){
-        drawLeftArm(tablero)
+        drawLeftArm(tablero, darkMode)
     }
 
     else if(errors == 1){
-        drawRightArm(tablero)
+        drawRightArm(tablero, darkMode)
     }
     
     else {
-        drawArrow(tablero)
+        drawArrow(tablero, darkMode)
     }
     
 }

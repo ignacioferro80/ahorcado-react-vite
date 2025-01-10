@@ -14,6 +14,7 @@ const Game = ({darkMode, secretWordList}) => {
     const [letterInput, setLetterInput] = useState("");
     const [lettersWritten, setLettersWritten] = useState([]);
     const [notAvailable, setNotAvailable] = useState(false);
+    const [reload, setReload] = useState(false);
     
     const [errorsLeft, setErrorsLeft] = useState(7);
     const [guessedLettersCount, setGuessedLettersCount] = useState(0);
@@ -28,20 +29,34 @@ const Game = ({darkMode, secretWordList}) => {
     
     useEffect(() => {
         const newSecretWord = secretWordList[Math.floor(Math.random() * secretWordList.length)];
-        console.log(newSecretWord);
+        setSecretWord(newSecretWord);
+        setGuessedLetters([]);
+        setNotGuessedLetters([]);
+        setLettersWritten([]);
+        setNotAvailable(false);
+        setReload(false);
+        setErrorsLeft(7);
+        setGuessedLettersCount(0);
+        setFinishedGame(false);
+        setWon(false);
+
         const canvas = canvasRef.current;
         const tablero = canvas.getContext("2d");
         tableroRef.current = tablero;
         
-        tablero.fillStyle = "#c5e2d7";
+        if(darkMode) {
+            tablero.fillStyle = "#070b44";
+        }
+        else {
+            tablero.fillStyle = "#c5e2d7";
+        }
         tablero.fillRect(0, 0, canvas.width, canvas.height);
-        drawHangmanLine(tablero);
+        drawHangmanLine(tablero, darkMode);
         drawLinesForWord(newSecretWord);
-        setSecretWord(newSecretWord);
-    }, []);
+    }, [reload]);
     
     const reloadPage = () => {
-        window.location.reload();
+        setReload(true);
     }
 
     const handleInputChange = (event) => {
@@ -57,7 +72,13 @@ const Game = ({darkMode, secretWordList}) => {
         tablero.lineWidth = 6;
         tablero.lineCap = "round";
         tablero.lineJoin = "round";
-        tablero.strokeStyle = "#1a3250";
+        if(darkMode){
+            tablero.strokeStyle = "#bbacd1";
+            
+        }
+        else {
+            tablero.strokeStyle = "#070b44";
+        }
     
         const anchura = 600/newSecretWord.length;
 
@@ -79,7 +100,12 @@ const Game = ({darkMode, secretWordList}) => {
         tablero.lineWidth = 6;
         tablero.lineCap = "round";
         tablero.lineJoin = "round";
-        tablero.fillStyle = "#154734";
+        if(darkMode){
+            tablero.fillStyle = "#71ad97";
+        }
+        else{
+            tablero.fillStyle = "#154734";
+        }
     
         var anchura = 600/secretWord.length;
         tablero.fillText(secretWord[index], 362+(anchura*index), 320);
@@ -94,7 +120,12 @@ const Game = ({darkMode, secretWordList}) => {
         tablero.lineWidth = 6;
         tablero.lineCap = "round";
         tablero.lineJoin = "round";
-        tablero.fillStyle = "#154734";
+        if(darkMode){
+            tablero.fillStyle = "#71ad97";
+        }
+        else{
+            tablero.fillStyle = "#154734";
+        }
 
         var anchura = 600/secretWord.length;
         tablero.fillText(secretWord[index], 332+(anchura*index), 320);
@@ -109,7 +140,12 @@ const Game = ({darkMode, secretWordList}) => {
         tablero.lineWidth = 6;
         tablero.lineCap = "round";
         tablero.lineJoin = "round";
-        tablero.fillStyle = "#421111";
+        if(darkMode){
+            tablero.fillStyle = "#884b4b";
+        }
+        else{
+            tablero.fillStyle = "#421111";
+        }
         tablero.fillText(letra, 300+(40*(10-errorsLeft)), 380, 40);
     
         tablero.stroke();
@@ -144,7 +180,6 @@ const Game = ({darkMode, secretWordList}) => {
                         writeCorrectLetter(i);
                     }
                 }
-                console.log(secretWord.length);
                 if(guessedLettersCount+1 == secretWord.length){
                     setFinishedGame(true);
                     setWon(true);
@@ -160,7 +195,7 @@ const Game = ({darkMode, secretWordList}) => {
         else{
             writeIncorrectLetter(letterInput, errorsLeft);
             setNotGuessedLetters([...notGuessedLetters, letterInput]);
-            drawHangmanWith_Errors(errorsLeft, tableroRef.current);
+            drawHangmanWith_Errors(errorsLeft, tableroRef.current, darkMode);
             setErrorsLeft(errorsLeft-1);
             if (errorsLeft == 0){
                 setFinishedGame(true);
@@ -184,16 +219,16 @@ const Game = ({darkMode, secretWordList}) => {
 
     return (
         <div>
-            <div className={`gamePage ${finishedGame || notAvailable ? "blurred" : ""}`} >
-                <canvas 
-                    className="canvas"
+            <div className={`gamePage   ${finishedGame || notAvailable ? "blurred" : ""}
+                                        ${darkMode ? "night" : ""}`}>
+                <canvas
                     ref={canvasRef}
                     id="forca"
                     width="1200"
                     height="390"
                     >
                 </canvas>
-                <input  className="testLetterInput" 
+                <input  className={`testLetterInput ${darkMode ? "night" : ""}`} 
                         value={letterInput} 
                         onChange={handleInputChange}
                         onKeyDown={
@@ -217,6 +252,8 @@ const Game = ({darkMode, secretWordList}) => {
                 {finishedGame && (
                     <FinishedGame 
                     won={won}
+                    secretWord={secretWord}
+                    reloadPage={reloadPage}
                     />
                 )}
             </div>
