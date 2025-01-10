@@ -35,7 +35,7 @@ const AddWord = ({ darkMode, secretWordList, setWordList }) => {
     }
 
     const handleInputChange = (event) => {
-        setLetterInput(event.target.value.toLowerCase());
+        setTextInput(event.target.value.toLowerCase());
     }
 
     return (
