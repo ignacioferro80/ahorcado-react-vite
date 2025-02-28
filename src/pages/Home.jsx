@@ -39,7 +39,7 @@ const Home = ({ darkMode, setDarkMode }) => {
                     <button onClick={() => goAddWordPage()} className={`add-word-button ${darkMode ? "night" : ""}`}>Add a new word</button>
                 </div>
 
-                <p className="rodapie">by <a href="https://www.linkedin.com/in/ignacio-ferro/">Ignacio Ferro</a> - September 2022</p>
+                <p className="rodapie">by <a href="https://www.linkedin.com/in/ignacio-ferro/">Ignacio Ferro</a></p>
             </div>
             <div className="toggle-container">
                 <img src={sun} alt="sun" className={`sun ${!darkMode ? "selected" : ""}`} />
